@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🌟 My Fun Learning World! 🌟</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <!-- Floating decorations -->
+  <div class="floaties">
+    <span>🌸</span><span>⭐</span><span>🦋</span><span>🌈</span>
+    <span>🍭</span><span>🌟</span><span>🎀</span><span>🐝</span>
+  </div>
+
+  <header>
+    <div class="header-inner">
+      <div class="cloud-title">
+        <h1>🌟 My Fun Learning World! 🌟</h1>
+        <p class="subtitle">Let's learn and play together! 🎉</p>
+      </div>
+      <div class="mascot" title="Click me!">🦄</div>
+    </div>
+  </header>
+
+  <!-- Home Screen -->
+  <main id="home-screen" class="screen active">
+    <div class="menu-grid">
+      <button class="menu-card" onclick="showScreen('alphabet-screen')" style="--card-color:#FFB3C6; --card-color2:#FF6B9D">
+        <span class="card-icon">🔤</span>
+        <span class="card-label">ABC Letters</span>
+        <span class="card-desc">Learn the alphabet!</span>
+      </button>
+      <button class="menu-card" onclick="showScreen('numbers-screen')" style="--card-color:#B3E5FC; --card-color2:#29B6F6">
+        <span class="card-icon">🔢</span>
+        <span class="card-label">123 Numbers</span>
+        <span class="card-desc">Count with me!</span>
+      </button>
+      <button class="menu-card" onclick="showScreen('colors-screen')" style="--card-color:#C8E6C9; --card-color2:#66BB6A">
+        <span class="card-icon">🎨</span>
+        <span class="card-label">Colors</span>
+        <span class="card-desc">Find the colors!</span>
+      </button>
+      <button class="menu-card" onclick="showScreen('shapes-screen')" style="--card-color:#FFF9C4; --card-color2:#FFEE58">
+        <span class="card-icon">🔵</span>
+        <span class="card-label">Shapes</span>
+        <span class="card-desc">Match the shapes!</span>
+      </button>
+      <button class="menu-card" onclick="showScreen('spelling-screen')" style="--card-color:#E1BEE7; --card-color2:#AB47BC">
+        <span class="card-icon">✏️</span>
+        <span class="card-label">Spelling</span>
+        <span class="card-desc">Spell fun words!</span>
+      </button>
+      <button class="menu-card" onclick="showScreen('math-screen')" style="--card-color:#FFE0B2; --card-color2:#FFA726">
+        <span class="card-icon">➕</span>
+        <span class="card-label">Easy Math</span>
+        <span class="card-desc">Add and subtract!</span>
+      </button>
+    </div>
+  </main>
+
+  <!-- ABC Alphabet Screen -->
+  <main id="alphabet-screen" class="screen">
+    <div class="screen-header">
+      <button class="back-btn" onclick="showScreen('home-screen')">⬅ Back</button>
+      <h2>🔤 ABC Letters</h2>
+    </div>
+    <p class="instruction">Click on a letter to hear its name and see a picture!</p>
+    <div class="alphabet-grid" id="alphabet-grid"></div>
+  </main>
+
+  <!-- Numbers Screen -->
+  <main id="numbers-screen" class="screen">
+    <div class="screen-header">
+      <button class="back-btn" onclick="showScreen('home-screen')">⬅ Back</button>
+      <h2>🔢 Count With Me!</h2>
+    </div>
+    <p class="instruction">Click a number to count the emojis!</p>
+    <div class="numbers-display" id="numbers-display"></div>
+    <div class="emoji-stage" id="emoji-stage"></div>
+  </main>
+
+  <!-- Colors Screen -->
+  <main id="colors-screen" class="screen">
+    <div class="screen-header">
+      <button class="back-btn" onclick="showScreen('home-screen')">⬅ Back</button>
+      <h2>🎨 Colors Game!</h2>
+    </div>
+    <div class="color-game-area">
+      <div class="color-question-box" id="color-question-box">
+        <p class="instruction" id="color-instruction">Which color is this? 👇</p>
+        <div class="color-swatch" id="color-swatch"></div>
+        <div class="color-choices" id="color-choices"></div>
+        <div class="score-area">
+          ⭐ Score: <span id="color-score">0</span>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Shapes Screen -->
+  <main id="shapes-screen" class="screen">
+    <div class="screen-header">
+      <button class="back-btn" onclick="showScreen('home-screen')">⬅ Back</button>
+      <h2>🔵 Shapes Game!</h2>
+    </div>
+    <p class="instruction" id="shapes-instruction">Match the shape! Click the correct one!</p>
+    <div class="shapes-target" id="shapes-target"></div>
+    <div class="shapes-choices" id="shapes-choices"></div>
+    <div class="score-area">⭐ Score: <span id="shapes-score">0</span></div>
+  </main>
+
+  <!-- Spelling Screen -->
+  <main id="spelling-screen" class="screen">
+    <div class="screen-header">
+      <button class="back-btn" onclick="showScreen('home-screen')">⬅ Back</button>
+      <h2>✏️ Spell It!</h2>
+    </div>
+    <p class="instruction">Look at the picture and type the word!</p>
+    <div class="spelling-area">
+      <div class="spell-picture" id="spell-picture"></div>
+      <div class="spell-hint" id="spell-hint"></div>
+      <div class="letter-boxes" id="letter-boxes"></div>
+      <div class="letter-keyboard" id="letter-keyboard"></div>
+      <button class="check-btn" onclick="checkSpelling()">✅ Check!</button>
+      <button class="skip-btn" onclick="nextSpelling()">⏭ Next Word</button>
+    </div>
+    <div class="score-area">⭐ Score: <span id="spell-score">0</span></div>
+  </main>
+
+  <!-- Easy Math Screen -->
+  <main id="math-screen" class="screen">
+    <div class="screen-header">
+      <button class="back-btn" onclick="showScreen('home-screen')">⬅ Back</button>
+      <h2>➕ Easy Math!</h2>
+    </div>
+    <p class="instruction" id="math-instruction">Solve the puzzle!</p>
+    <div class="math-area">
+      <div class="math-visual" id="math-visual"></div>
+      <div class="math-equation" id="math-equation"></div>
+      <div class="math-choices" id="math-choices"></div>
+    </div>
+    <div class="score-area">⭐ Score: <span id="math-score">0</span></div>
+  </main>
+
+  <!-- Celebration Overlay -->
+  <div class="celebration" id="celebration">
+    <div class="celebration-inner">
+      <div class="big-star">🌟</div>
+      <h2 id="celebration-msg">Amazing job!</h2>
+      <div class="confetti-row">🎉🎊🎈🎀🌈🦄⭐🍭</div>
+      <button onclick="hideCelebration()" class="yay-btn">Yay! ✨</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
